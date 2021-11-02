@@ -1,24 +1,33 @@
+import React, { useState } from "react";
 import "./App.css";
+import { TextField } from "./components/Forms/InputGroups/TextField/TextField";
+import { SelectMenu } from "./components/Forms/SelectMenus/SelectMenu/SelectMenu";
+import { SelectMenuWithCheck } from "./components/Forms/SelectMenus/SelectMenuWithCheck/SelectMenuWithCheck";
 
 function App() {
+  const [firstName, setFirstName] = useState("");
+
+  const onChange = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const options = [
+    { id: 0, name: "United States" },
+    { id: 1, name: "Canada" },
+    { id: 2, name: "Mexico" },
+  ];
+
   return (
-    <div>
-      <label
-        htmlFor="email"
-        className="block text-sm font-medium text-gray-700"
-      >
-        Email
-      </label>
-      <div className="mt-1">
-        <input
-          type="email"
-          name="email"
-          id="email"
-          className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-          placeholder="you@example.com"
-        />
-      </div>
-    </div>
+    <>
+      <TextField
+        label="First Name"
+        name="firstName"
+        value={firstName}
+        onChange={onChange}
+      />
+      <SelectMenu label="Location" options={options} />
+      <SelectMenuWithCheck label="Hello" people={options} />
+    </>
   );
 }
 
