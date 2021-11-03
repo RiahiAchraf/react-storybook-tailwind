@@ -1,5 +1,9 @@
 import React, { useState } from "react";
+import { PropTypes as T } from "prop-types";
 import { Switch } from "@headlessui/react";
+
+const propTypes = {};
+const defaultProps = {};
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -7,6 +11,7 @@ function classNames(...classes) {
 
 export const SimpleToggle = () => {
   const [enabled, setEnabled] = useState(false);
+
   return (
     <Switch
       checked={enabled}
@@ -27,3 +32,6 @@ export const SimpleToggle = () => {
     </Switch>
   );
 };
+
+SimpleToggle.propTypes = propTypes;
+SimpleToggle.defaultProps = defaultProps;

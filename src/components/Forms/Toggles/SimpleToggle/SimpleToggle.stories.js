@@ -10,4 +10,6 @@ const Template = (args) => <SimpleToggle {...args} />;
 
 export const Toggle = Template.bind({});
 
-Toggle.args = {};
+Toggle.args = {
+  toggleState: false,
+};
